@@ -31,10 +31,11 @@ export async function getStaticProps() {
     props: { data },
     // 이미 빌드가 완료된 사이트에서 주기적으로 정적인 페이지를 업데이트 할 수 있다.
     // 해당 페이지만 업데이트하는 것이기 때문에 전체 사이트를 다시 빌드할 필요가 없다.
-    // 아래 예제는, 5초마다 revalidate
-    // 즉, SSG + ISR
+
+    // 아래 예제는, 5초마다 revalidate => 즉, SSG + ISR
     // (SSG : Next.js에서 페이지를 생성할 때 기본으로 적용되는 설정으로, 빌드 시에 페이지를 미리 생성해 놓는다.)
     // (ISR : 빌드 시점에 페이지를 렌더링 한 후, 설정한 시간 마다 페이지를 새로 렌더링한다.)
+
     // 만약 5초가 지났음에도 데이터가 변하지 않으면 Next.js는 pre-rendering을 다시 수행하지 않는다.
     // 해당 정보는 Header의 Etag를 통해 확인할 수 있다.
     revalidate: 5,
